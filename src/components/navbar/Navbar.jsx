@@ -3,8 +3,8 @@ import navbarCSS from './Navbar.module.css'
 function Navbar() {
     return (
       <nav>
-        <div className={navbarCSS.left}>
-          <h4>DevShare Hub</h4>
+        <div className={navbarCSS.title}>
+          <h2>DevShare Hub</h2>
           <input type='text' placeholder='Search...'></input>
         </div>
 
