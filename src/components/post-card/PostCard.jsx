@@ -37,11 +37,14 @@ function PostCard({ title, body, tags, upvotes, time }) {
         } else {
             setTimeUnit('days')
         }
-        
+
         setDiffTime(Math.floor(diff))
 
         let string = body.substring(0, charLimit)
-        string += '...'
+
+        if (string.length != body.length) {
+            string += '...'
+        }
         setPreview(string)
 
     }, [])
