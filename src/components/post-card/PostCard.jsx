@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react'
 function PostCard({ title, body, tags, upvotes, time }) {
 
     const [diffTime, setDiffTime] = useState()
-
-    const [isDay, setIsDay] = useState(true)
+    const [timeUnit, setTimeUnit] = useState('days')
 
     const charLimit = 200
 
@@ -14,12 +13,32 @@ function PostCard({ title, body, tags, upvotes, time }) {
     useEffect(() => {
         const curDate = new Date()
         const date = new Date(Date.parse(time));
-        let diff = (curDate - date)/ (1000 * 60 * 60 * 24)
+        let diff = (curDate - date)/ (1000 * 60 * 60 * 24) // days
         if (diff < 1) {
-            diff *= 24
-            setIsDay(false)
+            diff *= 24 // hours
+
+            if (diff < 1) {
+                diff *= 60 // minutes
+
+                if (Math.floor(diff) == 1) {
+                    setTimeUnit('minute')
+                } else {
+                    setTimeUnit('minutes')
+                }
+
+            } else if (Math.floor(diff) == 1) {
+                setTimeUnit('hour')
+            } else {
+                setTimeUnit('hours')
+            }
+
+        } else if (Math.floor(diff) == 1) {
+            setTimeUnit('day')
+        } else {
+            setTimeUnit('days')
         }
-        setDiffTime(Math.ceil(diff))
+        
+        setDiffTime(Math.floor(diff))
 
         let string = body.substring(0, charLimit)
         string += '...'
@@ -29,7 +48,7 @@ function PostCard({ title, body, tags, upvotes, time }) {
 
     return (
         <div className={postCardCSS.container}>
-            { isDay ? <p>{diffTime} days ago</p> : <p>{diffTime} hours ago</p>}
+            <p>{diffTime} {timeUnit} ago</p>
             <h3>{title}</h3>
             <p>{preview}</p>
             <p>{tags}</p>
