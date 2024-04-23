@@ -1,7 +1,7 @@
 import postCardCSS from "./PostCard.module.css"
 import { useEffect, useState } from 'react'
 
-function PostCard({ title, body, tags, upvotes, time }) {
+function PostCard({ title, body, tags, upvotes, time, link }) {
 
     const [diffTime, setDiffTime] = useState()
     const [timeUnit, setTimeUnit] = useState('days')

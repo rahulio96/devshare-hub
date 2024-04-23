@@ -37,7 +37,7 @@ function Home() {
     return (
         <div className={homeCSS.container}>
             <div className={homeCSS.filters}>
-                <h3>Filters:</h3>
+                <h3>Sort:</h3>
                 <button className={newBtnColor} onClick={sortByNew}>New</button>
                 <button className={topBtnColor} onClick={sortByTop}>Top</button>
             </div>
@@ -50,6 +50,7 @@ function Home() {
                         tags={data[post].tags}
                         upvotes={data[post].upvotes}
                         time={data[post].created_at}
+                        link={data[post].link}
                     />
                 ))}
             </div>
