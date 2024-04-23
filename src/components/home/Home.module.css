@@ -1,0 +1,36 @@
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    margin: 0;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content: left;
+    width: 70vw;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.filters button {
+    margin-left: 20px;
+}
+
+.cards {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .filters {
+        justify-content: center;
+        text-align: center;
+    }
+}
