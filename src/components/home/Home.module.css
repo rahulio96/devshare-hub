@@ -24,6 +24,10 @@ h3 {
     margin-left: 20px;
 }
 
+.clicked {
+    background-color: red;
+}
+
 .cards {
     margin-top: 20px;
 }
