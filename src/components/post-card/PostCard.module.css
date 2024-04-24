@@ -4,7 +4,13 @@
     justify-content: left;
     align-items: left;
     text-align: left;
-    width: 70vw;
+    width: 72vw;
     margin-bottom: 1.5rem;
     border-radius: 25px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.title {
+    color: white;
 }

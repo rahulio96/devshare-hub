@@ -9,6 +9,10 @@ function Navbar({setSearch}) {
 
     const [tempSearch, setTempSearch] = useState('')
 
+    const clickLogo = () => {
+      useNavigate('/')
+    }
+
     const onSearch = (e) => {
       setTempSearch(e.target.value)      
     }
@@ -21,7 +25,7 @@ function Navbar({setSearch}) {
     return (
       <nav>
         <div className={navbarCSS.title}>
-          <h2>DevShare Hub</h2>
+          <h2><a href='/' onClick={clickLogo}>DevShare Hub</a></h2>
           <div className={navbarCSS.searchSection}>
           <input type='text' placeholder='Search...' onChange={onSearch}></input>
           <button  onClick={clickSearch} className={navbarCSS.searchBtn}><img className={navbarCSS.search} src={searchIcon} /></button>
