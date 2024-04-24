@@ -66,6 +66,25 @@ nav ul li a:hover {
     color:white;
 }
 
+.searchSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.searchBtn {
+    background-color: white;
+    margin-left: 0.5rem;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search {
+    width: 20px;
+    margin-top: 3px;
+}
+
 @media only screen and (max-width: 820px) {
     nav {
         font-size: small;
