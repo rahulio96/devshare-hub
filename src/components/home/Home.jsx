@@ -2,9 +2,13 @@ import PostCard from "../post-card/PostCard"
 import homeCSS from "./Home.module.css"
 import { supabase } from "../../client"
 import { useEffect, useState } from "react"
+import { useOutletContext } from "react-router-dom"
 
-function Home({ search }) {
+function Home() {
 
+    const [search, setSearch] = useOutletContext()
+
+    
     const [data, setData] = useState()
 
     const [newBtnColor, setNewBtnColor] = useState(homeCSS.clicked)

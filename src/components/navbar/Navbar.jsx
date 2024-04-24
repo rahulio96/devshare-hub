@@ -1,13 +1,17 @@
 import navbarCSS from './Navbar.module.css'
 import searchIcon from '/search.svg?url'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 function Navbar({setSearch}) {
+
+    const navigate = useNavigate()
 
     const [tempSearch, setTempSearch] = useState('')
 
     const onSearch = (e) => {
       setTempSearch(e.target.value)
+      //navigate('/')
     }
 
     const clickSearch = () => {

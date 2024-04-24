@@ -4,14 +4,20 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import Home from './components/home/Home'
+import { useRoutes } from 'react-router-dom'
 
 function App() {
-  const [search, setSearch] = useState('')
-  
+
+  let element = useRoutes([
+    {
+      path: "/",
+      element: <Home />,
+    },
+  ])
+
   return (
     <>
-      <Navbar setSearch={setSearch} />
-      <Home search={search} />
+      {element}
     </>
   )
 }
