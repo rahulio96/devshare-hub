@@ -26,13 +26,23 @@ function Navbar({setSearch}) {
       navigate('/')
     }
 
+    const handleEnter = (e) => {
+      if (e.key === 'Enter') {
+        clickSearch()
+      }
+    }
+
     return (
       <nav>
         <div className={navbarCSS.title}>
           <h2><a href='/' onClick={clickLogo}>DevShare Hub</a></h2>
           <div className={navbarCSS.searchSection}>
-          <input type='text' placeholder='Search...' onChange={onSearch}></input>
-          <button  onClick={clickSearch} className={navbarCSS.searchBtn}><img className={navbarCSS.search} src={searchIcon} /></button>
+          <input type='text' placeholder='Search...' onChange={onSearch} onKeyUp={handleEnter}></input>
+          <button 
+            onClick={clickSearch}
+            className={navbarCSS.searchBtn}>
+              <img className={navbarCSS.search} src={searchIcon} />
+          </button>
           </div>
         </div>
 
