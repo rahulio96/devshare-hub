@@ -10,12 +10,12 @@ function Navbar({setSearch}) {
     const [tempSearch, setTempSearch] = useState('')
 
     const onSearch = (e) => {
-      setTempSearch(e.target.value)
-      //navigate('/')
+      setTempSearch(e.target.value)      
     }
 
     const clickSearch = () => {
       setSearch(tempSearch)
+      navigate('/')
     }
 
     return (

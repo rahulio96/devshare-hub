@@ -5,6 +5,7 @@ import './index.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from './routes/Layout.jsx';
 import Home from './components/home/Home.jsx';
+import Create from './components/create-post/Create.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index={true} path="/" element={<App/>} />
+          <Route index={true} path="/create" element={<Create/>} />
         </Route>
       </Routes>
     </BrowserRouter>
