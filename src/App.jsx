@@ -6,11 +6,12 @@ import Navbar from './components/navbar/Navbar'
 import Home from './components/home/Home'
 
 function App() {
-
+  const [search, setSearch] = useState('')
+  
   return (
     <>
-      <Navbar />
-      <Home />
+      <Navbar setSearch={setSearch} />
+      <Home search={search} />
     </>
   )
 }

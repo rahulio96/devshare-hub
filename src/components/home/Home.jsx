@@ -3,7 +3,7 @@ import homeCSS from "./Home.module.css"
 import { supabase } from "../../client"
 import { useEffect, useState } from "react"
 
-function Home() {
+function Home({ search }) {
 
     const [data, setData] = useState()
 
@@ -27,12 +27,12 @@ function Home() {
             const { data } = await supabase
                 .from('posts')
                 .select()
-            const sortedNew = data.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
-            setData(sortedNew)
+            let sortedNew = data.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+            const filtered = sortedNew.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
+            setData(filtered)
         }
         fetchPosts()
-    }, [])
-
+    }, [search])
 
     return (
         <div className={homeCSS.container}>
@@ -42,17 +42,17 @@ function Home() {
                 <button className={topBtnColor} onClick={sortByTop}>Top</button>
             </div>
             <div className={homeCSS.cards}>
-                {data && Object.entries(data).map(([post]) => (
+                {data && data.length != 0 ? (data.map((post) => (
                     <PostCard 
-                        key={data[post].id}
-                        title={data[post].title}
-                        body={data[post].body}
-                        tags={data[post].tags}
-                        upvotes={data[post].upvotes}
-                        time={data[post].created_at}
-                        link={data[post].link}
+                        key={post.id}
+                        title={post.title}
+                        body={post.body}
+                        tags={post.tags}
+                        upvotes={post.upvotes}
+                        time={post.created_at}
+                        link={post.link}
                     />
-                ))}
+                ))) : <p>No results found {`:(`}</p>}
             </div>
         </div>
     )
