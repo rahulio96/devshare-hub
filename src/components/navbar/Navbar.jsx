@@ -10,7 +10,11 @@ function Navbar({setSearch}) {
     const [tempSearch, setTempSearch] = useState('')
 
     const clickLogo = () => {
-      useNavigate('/')
+      navigate('/')
+    }
+
+    const clickCreate = () => {
+      navigate('/create')
     }
 
     const onSearch = (e) => {
@@ -33,7 +37,7 @@ function Navbar({setSearch}) {
         </div>
 
         <ul>
-              <li><button>Create</button></li>
+              <li><button onClick={clickCreate}>Create</button></li>
               <li><button>Login</button></li>   
         </ul>
         

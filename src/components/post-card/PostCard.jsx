@@ -52,7 +52,7 @@ function PostCard({ title, body, tags, upvotes, time, link }) {
     return (
         <button className={postCardCSS.container}>
             <p>{diffTime} {timeUnit} ago</p>
-            <h3 class={postCardCSS.title}>{title}</h3>
+            <h3 className={postCardCSS.title}>{title}</h3>
             <p>{preview}</p>
             <p>{tags}</p>
             <p>{upvotes} upvotes</p>
