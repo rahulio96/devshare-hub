@@ -66,6 +66,7 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
     }
 
     return (
+        <div className={managePostCSS.center}>
         <div className={managePostCSS.container}>
             <h1>{purpose} Post</h1>
 
@@ -108,6 +109,7 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
                 {isCreate ? <button onClick={clear} className={managePostCSS.clear}>{noBtn}</button>
                 : <button className={managePostCSS.clear}>{noBtn}</button>}
             </div>
+        </div>
         </div>
     )
 }
