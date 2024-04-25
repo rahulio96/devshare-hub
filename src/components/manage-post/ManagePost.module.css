@@ -8,12 +8,12 @@
     margin-top: 25px;
 }
 
-textarea {
+.textarea {
     resize: vertical;
     height: 100px;
     border-radius: 15px;
     padding: 10px;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .clear {
@@ -24,7 +24,19 @@ textarea {
     background-color: #2dba4e;
 }
 
-.container input {
+.title {
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+}
+
+.red {
+    border-color: #f0440a;
+}
+
+
+.input {
     padding: 10px;
     border-radius: 25px;
     border: 1px solid white;

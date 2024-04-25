@@ -12,6 +12,9 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
     const [newTags, setNewTags] = useState(tags)
     const [newLink, setNewLink] = useState(link)
 
+    const [titleBorder, setTitleBorder] = useState(managePostCSS.title)
+    const [bodyBorder, setBodyBorder] = useState(managePostCSS.textarea)
+
     const changeTitle = (e) => {
         setNewTitle(e.target.value)
     }
@@ -29,16 +32,28 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
     }
 
     const create = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        await supabase
-          .from('posts')
-          .insert({
-            title: newTitle, body: newBody, tags: newTags, link: newLink
-            })
-          .select();
+        if (newTitle != '' && newBody != '') {         
+            await supabase
+            .from('posts')
+            .insert({
+                title: newTitle, body: newBody, tags: newTags, link: newLink
+                })
+            .select();
 
-          navigate('/');  
+            navigate('/') 
+        } 
+        if (newBody == '') {
+            setBodyBorder(`${bodyBorder} ${managePostCSS.red}`)
+        } else {
+            setBodyBorder(managePostCSS.textarea)
+        }
+        if (newTitle == '') {
+            setTitleBorder(`${titleBorder} ${managePostCSS.red}`)
+        } else {
+            setTitleBorder(managePostCSS.title)
+        }
     }
 
     const clear = () => {
@@ -46,6 +61,8 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
         setNewTitle('')
         setNewBody('')
         setNewTags('')
+        setBodyBorder(managePostCSS.textarea)
+        setTitleBorder(managePostCSS.title)
     }
 
     return (
@@ -54,15 +71,21 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
 
             <div className={managePostCSS.mainText}>
                 <input 
-                    className={managePostCSS.title}
+                    className={titleBorder}
                     type='text' placeholder='Title*' 
                     value={newTitle} onChange={changeTitle}>
                 </input>
 
-                <textarea placeholder='Body*' value={newBody} onChange={changeBody}></textarea>
+                <textarea 
+                    className={bodyBorder}
+                    placeholder='Body*' value={newBody} 
+                    onChange={changeBody}>
+                </textarea>
+
                 <h2>{purpose} Tags</h2>
 
                 <input 
+                    className={managePostCSS.input}
                     type='text' 
                     placeholder='ex. React, Figma, AWS'
                     value={newTags} 
@@ -70,7 +93,13 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
                 </input>
 
                 <h2>{purpose} Project Link</h2>
-                <input type='text' placeholder='GitHub or Deployed Link' value={newLink} onChange={changeLinks}></input>
+                <input 
+                    className={managePostCSS.input}
+                    type='text' 
+                    placeholder='GitHub or Deployed Link' 
+                    value={newLink} 
+                    onChange={changeLinks}>
+                </input>
             </div>
 
             <div className={managePostCSS.btnContainer}>
