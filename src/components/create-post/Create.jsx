@@ -7,7 +7,6 @@ function Create() {
         <ManagePost 
             yesBtn={'Post'}
             noBtn={'Clear'}
-            purpose={'Create'}
             title={''}
             body={''}
             tags={''}

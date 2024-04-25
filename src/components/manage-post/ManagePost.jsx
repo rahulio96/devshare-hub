@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { supabase } from '../../client'
 import { useNavigate } from 'react-router-dom'
 
-function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link }) {
+function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
 
     const navigate = useNavigate()
 
@@ -68,7 +68,7 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
     return (
         <div className={managePostCSS.center}>
         <div className={managePostCSS.container}>
-            <h1>{purpose} Post</h1>
+            <h1>{isCreate ? `Create` : `Edit`} Post</h1>
 
             <div className={managePostCSS.mainText}>
                 <input 
@@ -83,7 +83,7 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
                     onChange={changeBody}>
                 </textarea>
 
-                <h2>{purpose} Tags</h2>
+                <h2>{isCreate ? `Add` : `Edit`} Tags</h2>
 
                 <input 
                     className={managePostCSS.input}
@@ -93,11 +93,11 @@ function ManagePost({ yesBtn, noBtn, purpose, isCreate, title, body, tags, link 
                     onChange={changeTags}>
                 </input>
 
-                <h2>{purpose} Project Link</h2>
+                <h2>{isCreate ? `Add` : `Edit`} Image/Gif URL</h2>
                 <input 
                     className={managePostCSS.input}
                     type='text' 
-                    placeholder='GitHub or Deployed Link' 
+                    placeholder='ex. https://imgur.com/...' 
                     value={newLink} 
                     onChange={changeLinks}>
                 </input>
