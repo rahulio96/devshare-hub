@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from './routes/Layout.jsx';
 import Home from './components/home/Home.jsx';
 import Create from './components/create-post/Create.jsx';
+import PostDetailView from './routes/PostDetailView.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<Layout />}>
           <Route index={true} element={<Home />} />
           <Route index={true} path="/create" element={<Create/>} />
+          <Route index={true} path="/posts/:id" element={<PostDetailView/>} />
         </Route>
       </Routes>
     </BrowserRouter>
