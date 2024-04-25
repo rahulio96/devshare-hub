@@ -54,7 +54,7 @@ function Home() {
                         tags={post.tags}
                         upvotes={post.upvotes}
                         time={post.created_at}
-                        link={post.link}
+                        id={post.id}
                     />
                 ))) : <p>No results found {`:(`}</p>}
             </div>

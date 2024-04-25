@@ -1,7 +1,10 @@
 import postCardCSS from "./PostCard.module.css"
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 
-function PostCard({ title, body, tags, upvotes, time, link }) {
+function PostCard({ title, body, tags, upvotes, time, id }) {
+
+    const navigate = useNavigate()
 
     const [diffTime, setDiffTime] = useState()
     const [timeUnit, setTimeUnit] = useState('days')
@@ -9,6 +12,10 @@ function PostCard({ title, body, tags, upvotes, time, link }) {
     const charLimit = 200
 
     const [preview, setPreview] = useState('')
+
+    const clickPost =() => {
+        navigate(`/posts/${id}`)
+    }
 
     useEffect(() => {
         const curDate = new Date()
@@ -50,7 +57,7 @@ function PostCard({ title, body, tags, upvotes, time, link }) {
     }, [])
 
     return (
-        <button className={postCardCSS.container}>
+        <button onClick={clickPost} className={postCardCSS.container}>
             <p>{diffTime} {timeUnit} ago</p>
             <h3 className={postCardCSS.title}>{title}</h3>
             <p>{preview}</p>
