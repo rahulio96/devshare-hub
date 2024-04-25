@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import postCardCSS from "../post-card/PostCard.module.css"
 import managePostCSS from "../manage-post/ManagePost.module.css"
 import postCSS from "./Post.module.css"
+import Time from "../time/Time"
 
 function Post() {
     let params = useParams()
@@ -26,6 +27,7 @@ function Post() {
     return (
         <div className={managePostCSS.center}>{data && 
             <div className={postCardCSS.container}>
+                <Time time={data.created_at} />
                 <h2>{data.title}</h2>
                 <p>{data.body}</p>
                 <p>Tags: {data.tags}</p>
