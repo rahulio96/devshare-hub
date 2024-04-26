@@ -40,6 +40,7 @@ function Home() {
 
     return (
         <div className={homeCSS.container}>
+            <h1 className={homeCSS.title}>DevShare Hub</h1>
             <div className={homeCSS.filters}>
                 <h3>Sort:</h3>
                 <button className={newBtnColor} onClick={sortByNew}>New</button>
