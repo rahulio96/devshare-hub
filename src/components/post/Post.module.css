@@ -1,14 +1,14 @@
 .center {
     flex-direction: column;
     margin-top: 100px;
+    width: 100%;
 }
 
 .comments {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items:flex-start;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
 }
 
 .regularButtons {

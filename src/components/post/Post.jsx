@@ -5,11 +5,13 @@ import postCardCSS from "../post-card/PostCard.module.css"
 import managePostCSS from "../manage-post/ManagePost.module.css"
 import postCSS from "./Post.module.css"
 import Time from "../time/Time"
+import Comments from "../comments/Comments"
 
 function Post() {
     let params = useParams()
 
     const [data, setData] = useState(null)
+    const [comments, setComments] = useState(null)
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -19,14 +21,19 @@ function Post() {
                 .eq('id', params.id)
 
                 setData(data[0])
+
+                if (data[0].comments) {
+                    setComments(data[0].comments.split(", "))
+                }
         }
         fetchPost()
     }, [params.id])
 
 
     return (
-        <div className={`${managePostCSS.center} ${postCSS.center}`}>
-            {data && <div className={postCardCSS.container}>
+        <>
+        {data && <div className={`${managePostCSS.center} ${postCSS.center}`}>
+            <div className={postCardCSS.container}>
                 <div className={postCSS.header}>
                     <Time time={data.created_at} />
                     <div className={postCSS.manage}>
@@ -48,14 +55,15 @@ function Post() {
                         <button>Project Link</button>
                     </div>
                 </div>
-            </div>}
-
-            <div className={postCSS.comments}>
-                <h4>Comments</h4>
-                <textarea placeholder="Add a comment"></textarea>
             </div>
 
-        </div>
+            <div className={postCSS.comments}>
+                <Comments commentsArr={comments} />
+            </div>
+
+
+        </div>}
+        </>
     )
 }
 
