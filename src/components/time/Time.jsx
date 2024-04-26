@@ -40,7 +40,11 @@ function Time ({ time }) {
             setTimeUnit('days')
         }
 
-        setDiffTime(Math.floor(diff))
+        if (Math.floor(diff) < 0) {
+            setDiffTime(0)
+        } else {
+            setDiffTime(Math.floor(diff))
+        }
     }, [])
 
     return (
