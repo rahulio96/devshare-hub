@@ -74,15 +74,21 @@
 
 img {
     display: flex;
-    width: 45vw;
+    width: 100%vw;
     height: auto;
 }
 
-@media only screen and (max-width: 768px) {
+.comments h4 {
+    margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
     img {
         width: 100%;
     }
+}
 
+@media only screen and (max-width: 850px) {
     .manage button {
         font-size: small;
     }
