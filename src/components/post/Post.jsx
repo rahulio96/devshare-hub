@@ -65,6 +65,15 @@ function Post() {
           })
         .eq('id', params.id)
     }
+
+    const deletePost = async () => {
+        await supabase
+            .from('posts')
+            .delete()
+            .eq('id', params.id);
+
+        setTimeout(() => navigate('/'), 500)
+    }
     
     const addUpvote = () => {
         setUpvote(curUpvote+=1)
@@ -86,10 +95,10 @@ function Post() {
         {data && <div className={`${managePostCSS.center} ${postCSS.center}`}>
             <div className={postCardCSS.container}>
                 <div className={postCSS.header}>
-                    <Time time={data.created_at} />
+                    {isEdit ? <button onClick={deletePost} className={postCSS.delete}>Delete</button> : <Time time={data.created_at} />}
                     <div className={postCSS.manage}>
                         <button onClick={saveEdit}>{isEdit ? `Save` : `Edit`}</button>
-                        { isEdit ? <button onClick={() => setIsEdit(false)}>Cancel</button> : <button>Delete</button>}
+                        {isEdit ? <button onClick={() => setIsEdit(false)}>Cancel</button> : <></>}
                     </div>
                 </div>
                 {isEdit ? <div className={postCSS.edit}><textarea placeholder="Edit title" onChange={(e) => setTitle(e.target.value)} value={title}></textarea> 
