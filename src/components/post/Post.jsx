@@ -59,7 +59,7 @@ function Post() {
         } else {
             setIsEdit(false)
             updatePost()
-            window.location.reload()
+            setTimeout(() => window.location.reload(), 500)
         }
     }
 
