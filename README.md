@@ -2,9 +2,9 @@
 
 Submitted by: **Rahul Gupta**
 
-This web app: **allows developers, specifically students, to share their cool projects with others!**
+This web app: **allows developers, specifically students, to share their cool projects with others! Check it out here: https://devsharehub.netlify.app/**
 
-Time spent: **18** hours spent in total
+Time spent: **20** hours spent in total
 
 ## Required Features
 
@@ -36,17 +36,17 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 * [x] Wesbite is responsive, and I tried to make it look nice on mobile
-* [x] Custom favicon and website renamed
-* [x] Project is deployed on netlify: https://devsharehub.netlify.app/
+* [x] Custom favicon and website renamed in browser
+* [x] Project is deployed on netlify
 
 ## Video Walkthrough
 
 Here's a walkthrough of the website:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./devsharehub-demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with [ScreenToGif](https://www.screentogif.com/) for Windows  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -55,6 +55,10 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Incredibly busy week, had two other projects to work on, so I wasn't able to hit all the stretch features :(
+- I learned that you can pass a component from one prop to another even if they aren't nested, and you use useOutletContext to do so. I had to learn this to make the navbar search work on all screens.
+- Getting responsivenes to be just right was also challenging
+- Had an issue with deployment where I included single quotes in the environment variable section which caused nothing to appear.
 
 ## License
 
