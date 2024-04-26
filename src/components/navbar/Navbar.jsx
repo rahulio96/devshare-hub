@@ -2,6 +2,7 @@ import navbarCSS from './Navbar.module.css'
 import searchIcon from '/search.svg?url'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import logo from "/devsharehub-logo.png"
 
 function Navbar({setSearch}) {
 
@@ -35,7 +36,13 @@ function Navbar({setSearch}) {
     return (
       <nav>
         <div className={navbarCSS.title}>
-          <h2><a href='/' onClick={clickLogo}>DevShare Hub</a></h2>
+          <h2>
+            <a href='/' onClick={clickLogo}>
+              <img className={navbarCSS.logo} src={logo}/>
+                <div className={navbarCSS.logoName}>DevShare Hub</div>
+              </a>
+          </h2>
+
           <div className={navbarCSS.searchSection}>
           <input type='text' placeholder='Search...' onChange={onSearch} onKeyUp={handleEnter}></input>
           <button 
