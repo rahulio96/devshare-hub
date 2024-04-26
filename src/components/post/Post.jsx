@@ -6,9 +6,11 @@ import managePostCSS from "../manage-post/ManagePost.module.css"
 import postCSS from "./Post.module.css"
 import Time from "../time/Time"
 import Comments from "../comments/Comments"
+import { useNavigate } from "react-router-dom"
 
 function Post() {
     let params = useParams()
+    const navigate = useNavigate()
 
     const [data, setData] = useState(null)
     const [comments, setComments] = useState(null)
@@ -41,12 +43,23 @@ function Post() {
         fetchPost()
     }, [params.id])
 
+    const updatePost = async () => {
+        await supabase
+          .from('posts')
+          .update({
+            title: title, body: body, tags: tags, link: link,
+            image: img
+            })
+          .eq('id', params.id)
+    }   
+
     const saveEdit = () => {
         if (!isEdit) {
             setIsEdit(true)
-            // save logic
         } else {
             setIsEdit(false)
+            updatePost()
+            window.location.reload()
         }
     }
 
