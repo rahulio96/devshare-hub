@@ -11,6 +11,7 @@ function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
     const [newBody, setNewBody] = useState(body)
     const [newTags, setNewTags] = useState(tags)
     const [newLink, setNewLink] = useState(link)
+    const [newImg, setNewImg] = useState('')
 
     const [titleBorder, setTitleBorder] = useState(managePostCSS.title)
     const [bodyBorder, setBodyBorder] = useState(managePostCSS.textarea)
@@ -31,6 +32,10 @@ function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
         setNewLink(e.target.value)
     }
 
+    const changeImgURL = (e) => {
+        setNewImg(e.target.value)
+    }
+
     const create = async (e) => {
         e.preventDefault()
 
@@ -38,7 +43,8 @@ function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
             await supabase
             .from('posts')
             .insert({
-                title: newTitle, body: newBody, tags: newTags, link: newLink
+                title: newTitle, body: newBody, tags: newTags, link: newLink,
+                image: newImg
                 })
             .select();
 
@@ -98,6 +104,15 @@ function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
                     className={managePostCSS.input}
                     type='text' 
                     placeholder='ex. https://imgur.com/...' 
+                    value={newImg} 
+                    onChange={changeImgURL}>
+                </input>
+
+                <h2>{isCreate ? `Add` : `Edit`} Project URL</h2>
+                <input 
+                    className={managePostCSS.input}
+                    type='text' 
+                    placeholder='ex. https://github.com/...' 
                     value={newLink} 
                     onChange={changeLinks}>
                 </input>
