@@ -22,6 +22,9 @@ function Post() {
     const [img, setImg] = useState('')
     const [link, setLink] = useState('')
 
+    const [upvote, setUpvote] = useState(0)
+    let curUpvote = upvote
+
     useEffect(() => {
         const fetchPost = async () => {
             const { data } = await supabase
@@ -39,6 +42,7 @@ function Post() {
                 setTags(data[0]?.tags || '')
                 setImg(data[0]?.image || '')
                 setLink(data[0]?.link || '')
+                setUpvote(data[0].upvotes)
         }
         fetchPost()
     }, [params.id])
@@ -48,10 +52,24 @@ function Post() {
           .from('posts')
           .update({
             title: title, body: body, tags: tags, link: link,
-            image: img
+            image: img, upvotes: upvote
             })
           .eq('id', params.id)
-    }   
+    }
+
+    const updateVote = async () => {
+        await supabase
+        .from('posts')
+        .update({
+            upvotes: curUpvote
+          })
+        .eq('id', params.id)
+    }
+    
+    const addUpvote = () => {
+        setUpvote(curUpvote+=1)
+        updateVote()
+    }
 
     const saveEdit = () => {
         if (!isEdit) {
@@ -88,8 +106,8 @@ function Post() {
                 <div>
                     <div className={postCSS.regularButtons}>
                         <div className={postCSS.upvotes}>
-                            <button className={postCSS.upvote}>&uarr;</button>
-                            <p>{data.upvotes}</p>
+                            <button onClick={addUpvote} className={postCSS.upvote}>&uarr;</button>
+                            <p>{upvote}</p>
                             <button className={postCSS.downvote}>&darr;</button>
                         </div>
                         {data.link ? <button>Project Link</button> : <></>}
