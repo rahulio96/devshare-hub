@@ -47,7 +47,7 @@ h3 {
     }
 }
 
-@media only screen and (max-width: 337px) {
+@media only screen and (max-width: 342px) {
     .container {
         margin-top: 110px;
     }

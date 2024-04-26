@@ -115,9 +115,12 @@ nav ul li a:hover {
 
     nav {
         font-size: small;
-        justify-content: center;
         padding-bottom: 10px;
         width: 100%;
+    }
+
+    .logo {
+        margin-left: 0.25rem;
     }
 
     nav h2 {
@@ -137,4 +140,10 @@ nav ul li a:hover {
         margin-left: 0;
     }
 
+}
+
+@media only screen and (max-width: 342px) {
+    nav {
+        justify-content: center;
+    }
 }
