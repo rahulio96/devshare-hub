@@ -46,9 +46,9 @@ function ManagePost({ yesBtn, noBtn, isCreate, title, body, tags, link }) {
                 title: newTitle, body: newBody, tags: newTags, link: newLink,
                 image: newImg
                 })
-            .select();
+            .select()
 
-            navigate('/') 
+            setTimeout(() => navigate('/'), 200)
         } 
         if (newBody == '') {
             setBodyBorder(`${bodyBorder} ${managePostCSS.red}`)

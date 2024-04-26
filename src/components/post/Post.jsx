@@ -73,7 +73,7 @@ function Post() {
             .delete()
             .eq('id', params.id);
 
-        setTimeout(() => navigate('/'), 500)
+        setTimeout(() => navigate('/'), 200)
     }
     
     const addUpvote = () => {
@@ -87,7 +87,7 @@ function Post() {
         } else {
             setIsEdit(false)
             updatePost()
-            setTimeout(() => window.location.reload(), 500)
+            setTimeout(() => window.location.reload(), 200)
         }
     }
 
