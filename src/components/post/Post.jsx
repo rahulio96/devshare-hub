@@ -25,14 +25,36 @@ function Post() {
 
 
     return (
-        <div className={managePostCSS.center}>{data && 
-            <div className={postCardCSS.container}>
-                <Time time={data.created_at} />
+        <div className={`${managePostCSS.center} ${postCSS.center}`}>
+            {data && <div className={postCardCSS.container}>
+                <div className={postCSS.header}>
+                    <Time time={data.created_at} />
+                    <div className={postCSS.manage}>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </div>
+                </div>
                 <h2>{data.title}</h2>
                 <p>{data.body}</p>
                 <p>Tags: {data.tags}</p>
-                <p>Link: <a href={data.link}>{data.link}</a></p> 
+                <img src={data.image} />
+                <div>
+                    <div className={postCSS.regularButtons}>
+                        <div className={postCSS.upvotes}>
+                            <button className={postCSS.upvote}>&uarr;</button>
+                            <p>{data.upvotes}</p>
+                            <button className={postCSS.downvote}>&darr;</button>
+                        </div>
+                        <button>Project Link</button>
+                    </div>
+                </div>
             </div>}
+
+            <div className={postCSS.comments}>
+                <h4>Comments</h4>
+                <textarea placeholder="Add a comment"></textarea>
+            </div>
+
         </div>
     )
 }

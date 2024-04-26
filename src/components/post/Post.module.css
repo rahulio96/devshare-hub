@@ -1,0 +1,94 @@
+.center {
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items:flex-start;
+    width: 100%;
+}
+
+.regularButtons {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.upvotes {
+    display: flex;
+    background-color: #1a1a1a;
+    border-radius: 25px;
+    font-size: x-large;
+    margin: 1rem 0;
+    margin-right: 2rem;
+}
+
+.regularButtons button {
+    border-radius: 25px;
+}
+
+.upvotes button {
+    margin: 0;
+    padding: 0;
+}
+
+.upvote:hover {
+    transition: all 0.2s;
+    background-color: #2dba4e;
+}
+
+.downvote:hover {
+    transition: all 0.2s;
+    background-color: #f0440a;
+}
+
+.upvotes button {
+    padding: 0 10px;
+}
+
+.upvotes button:hover {
+    border-color: transparent;
+}
+
+.upvotes p {
+    margin: 0 5px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.manage {
+    display: flex;
+}
+
+.manage button {
+    margin-left: 0.5rem;
+}
+
+img {
+    display: flex;
+    width: 45vw;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+        width: 100%;
+    }
+
+    .manage button {
+        font-size: small;
+    }
+
+    .regularButtons {
+        align-items: center;
+        justify-content: center;
+    }
+}
