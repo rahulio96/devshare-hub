@@ -13,7 +13,7 @@ function Post() {
     const navigate = useNavigate()
 
     const [data, setData] = useState(null)
-    const [comments, setComments] = useState(null)
+    const [comments, setComments] = useState([])
 
     const [isEdit, setIsEdit] = useState(false)
     const [body, setBody] = useState('')
@@ -35,7 +35,7 @@ function Post() {
                 setData(data[0])
 
                 if (data[0].comments) {
-                    setComments(data[0].comments.split(", "))
+                    setComments(data[0].comments.split(","))
                 }
                 setBody(data[0]?.body || '')
                 setTitle(data[0]?.title || '')
@@ -125,7 +125,7 @@ function Post() {
             </div>
 
             <div className={postCSS.comments}>
-                <Comments commentsArr={comments} />
+                <Comments commentsArr={comments} id={params.id}/>
             </div>
 
 
