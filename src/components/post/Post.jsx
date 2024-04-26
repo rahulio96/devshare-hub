@@ -7,6 +7,7 @@ import postCSS from "./Post.module.css"
 import Time from "../time/Time"
 import Comments from "../comments/Comments"
 import { useNavigate } from "react-router-dom"
+import Spinner from "../spinner/Spinner"
 
 function Post() {
     let params = useParams()
@@ -92,7 +93,7 @@ function Post() {
 
     return (
         <>
-        {data && <div className={`${managePostCSS.center} ${postCSS.center}`}>
+        {data ? <div className={`${managePostCSS.center} ${postCSS.center}`}>
             <div className={postCardCSS.container}>
                 <div className={postCSS.header}>
                     {isEdit ? <button onClick={deletePost} className={postCSS.delete}>Delete</button> : <Time time={data.created_at} />}
@@ -129,7 +130,7 @@ function Post() {
             </div>
 
 
-        </div>}
+        </div> : <Spinner />}
         </>
     )
 }

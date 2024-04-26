@@ -3,6 +3,7 @@ import homeCSS from "./Home.module.css"
 import { supabase } from "../../client"
 import { useEffect, useState } from "react"
 import { useOutletContext } from "react-router-dom"
+import Spinner from "../spinner/Spinner"
 
 function Home() {
 
@@ -57,7 +58,7 @@ function Home() {
                         time={post.created_at}
                         id={post.id}
                     />
-                ))) : <p>No results found {`:(`}</p>}
+                ))) : !data ? <Spinner />  : <p>No results found {`:(`}</p>}
             </div>
         </div>
     )
