@@ -24,11 +24,11 @@
     border-radius: 25px;
     font-size: x-large;
     margin: 1rem 0;
-    margin-right: 2rem;
 }
 
 .regularButtons button {
     border-radius: 25px;
+    margin-left: 2rem;
 }
 
 .upvotes button {
