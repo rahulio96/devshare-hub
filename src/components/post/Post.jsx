@@ -110,7 +110,7 @@ function Post() {
                             <p>{upvote}</p>
                             <button className={postCSS.downvote}>&darr;</button>
                         </div>
-                        {data.link ? <button>Project Link</button> : <></>}
+                        {data.link ? <button onClick={() => window.location.href = `${link}`}>Project Link</button> : <></>}
                     </div>
                 </div>
             </div>
