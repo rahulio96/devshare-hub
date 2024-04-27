@@ -112,4 +112,8 @@ textarea {
         align-items: center;
         justify-content: center;
     }
+
+    .header button {
+        font-size: 0.95rem;
+    }
 }
